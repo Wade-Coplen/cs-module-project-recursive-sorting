@@ -3,17 +3,19 @@ def binary_search(arr, target, start, end):
     # Your code here
     # Base Case (where we will stop)
     if start >= end:
-    
         mid = (start + end) // 2
         # if the element is the middle
         if arr[mid] == target:
             return mid
-        # if the element is < mid it will be on the left side array
+        
         elif arr[mid] > target:
-            # else the elemnt is in >, will be on the right side
-            return binary_search(arr, end, mid -1, target)
+            # if the element is < mid it will be on the left side array
+            return binary_search(arr, target, end, mid - 1)
         else:
-            return binary_search(arr, mid + 1, start, target)
+            # else the elemnt is in >, will be on the right side
+            return binary_search(arr, target, start, mid + 1)
+    else:
+        return -1
 
            
             
